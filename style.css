@@ -1,0 +1,227 @@
+/* REFORMA DO CORPO DO SITE — layout editorial em blocos */
+:root{
+  --ink:#12263a;
+  --navy:#173b5e;
+  --blue:#2f6f9f;
+  --blue-light:#dcebf6;
+  --orange:#f08a43;
+  --paper:#f4f8fb;
+  --white:#fff;
+  --muted:#64788a;
+  --line:#d8e3ec;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Nunito Sans',sans-serif}
+.topo{min-height:76px;display:flex;align-items:center;justify-content:space-between;padding:12px max(6%,calc((100% - 1180px)/2));background:var(--ink);border-bottom:4px solid var(--orange)}
+.logo{font-family:'Space Grotesk',sans-serif;font-size:25px;font-weight:700;letter-spacing:-1px;color:white}
+.logo span{color:var(--orange)}
+nav{display:flex;gap:7px;flex-wrap:wrap}
+.nav-btn{background:transparent;border:1px solid transparent;padding:10px 14px;cursor:pointer;font-size:13px;font-weight:800;color:#d5e3ef;border-radius:3px;transition:.2s}
+.nav-btn:hover,.nav-btn.active{background:var(--blue);border-color:#6c9dc2;color:white}
+main{max-width:1180px;margin:0 auto;min-height:80vh;padding:0 28px}
+.pagina{display:none;padding:44px 0 75px;animation:aparecer .3s ease}
+.pagina.ativa{display:block}
+@keyframes aparecer{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+
+/* Página inicial: capa editorial escura + painel de informações */
+#inicio{padding-top:34px}
+.hero{position:relative;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;gap:0;min-height:390px;background:var(--navy);overflow:hidden}
+.hero-texto{padding:48px 42px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.hero .etiqueta{color:#ffb77e}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(35px,4.2vw,55px);line-height:1.05;letter-spacing:-2px;margin:20px 0;color:white;max-width:600px}
+.hero p{color:#d0dfeb;line-height:1.85;font-size:15px;max-width:480px}
+.botao{margin-top:26px;background:var(--orange);color:#172b40;padding:14px 20px;border:0;border-radius:3px;cursor:pointer;font-weight:900;transition:.2s}
+.botao:hover{background:#ffad70;transform:translateY(-2px)}
+.hero-imagem{position:relative;min-height:390px;padding:0;background:#244e72;transform:none;box-shadow:none;border:0}
+.hero-imagem:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#173b5e30,transparent 55%);pointer-events:none}
+.hero-imagem img{width:100%;height:100%;min-height:390px;object-fit:cover;display:block;opacity:.88}
+.hero-imagem span{position:absolute;z-index:1;bottom:20px;right:20px;background:white;color:var(--ink);padding:10px 14px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700}
+.introducao{margin:52px 0 0;max-width:760px;padding-left:24px;border-left:4px solid var(--orange)}
+.introducao h2{font-family:'Space Grotesk',sans-serif;font-size:31px;letter-spacing:-1px;margin:10px 0;color:var(--ink)}
+.introducao p{color:var(--muted);line-height:1.85;font-size:15px;margin:0 0 12px}
+.resumo{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;background:var(--blue-light);border:1px solid var(--line)}
+.resumo-card{padding:22px 26px;border-right:1px solid #c6d9e8}
+.resumo-card:last-child{border:0}
+.resumo-card strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:34px;color:var(--blue)}
+.resumo-card span{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:1px}
+
+/* Cabeçalhos de seção */
+.cabecalho-pagina{max-width:760px;margin:0 0 35px;padding:0 0 24px;border-bottom:1px solid var(--line)}
+.etiqueta{display:inline-block;color:var(--blue);font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.cabecalho-pagina h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(36px,4vw,49px);letter-spacing:-1.8px;margin:10px 0;color:var(--ink)}
+.cabecalho-pagina p{color:var(--muted);line-height:1.85;font-size:15px;max-width:650px}
+.ferramentas{margin-bottom:22px}
+#busca{width:100%;max-width:440px;padding:14px 16px;border:1px solid var(--line);border-radius:3px;outline:none;background:white;font-family:inherit;color:var(--ink)}
+#busca:focus{border-color:var(--blue);box-shadow:0 0 0 3px #397fb51a}
+
+/* Redações em formato de lista editorial, não cartões em grade */
+#lista-redacoes.grade{display:flex;flex-direction:column;gap:12px}
+#lista-redacoes .cartao{display:grid;grid-template-columns:190px 1fr;min-height:155px;background:white;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:2px;overflow:hidden;transition:.2s}
+#lista-redacoes .cartao:hover{transform:translateX(4px);box-shadow:0 8px 20px #12263a12;border-left-color:var(--orange)}
+#lista-redacoes .cartao img{width:100%;height:100%;min-height:155px;object-fit:cover;background:var(--blue-light)}
+#lista-redacoes .cartao-conteudo{padding:20px 24px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+#lista-redacoes .cartao h3{font-family:'Space Grotesk',sans-serif;font-size:22px;letter-spacing:-.5px;margin:7px 0;color:var(--ink)}
+#lista-redacoes .cartao p{font-size:13px;color:var(--muted);line-height:1.65}
+#lista-redacoes .cartao button{margin-top:12px;background:transparent;border:0;border-bottom:2px solid var(--orange);padding:0 0 3px;color:var(--blue);cursor:pointer;font-weight:900;font-family:inherit}
+.cartao small{color:var(--blue);font-weight:900;letter-spacing:1.3px;font-size:10px}
+
+/* Galerias: mosaico de fotos com alturas alternadas */
+#galeria-infancia.grade,#galeria-escola.grade{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:18px}
+#galeria-infancia .cartao,#galeria-escola .cartao{background:white;border:0;border-radius:0;overflow:hidden;box-shadow:0 5px 18px #12263a0c}
+#galeria-infancia .cartao:nth-child(2),#galeria-escola .cartao:nth-child(2){margin-top:35px}
+#galeria-infancia .cartao:nth-child(3n),#galeria-escola .cartao:nth-child(3n){margin-top:70px}
+#galeria-infancia .cartao img,#galeria-escola .cartao img{height:230px;object-fit:cover}
+#galeria-infancia .cartao-conteudo,#galeria-escola .cartao-conteudo{padding:17px 18px 20px}/* REFORMA DO CORPO DO SITE — layout editorial em blocos */
+:root{
+  --ink:#12263a;
+  --navy:#173b5e;
+  --blue:#2f6f9f;
+  --blue-light:#dcebf6;
+  --orange:#f08a43;
+  --paper:#f4f8fb;
+  --white:#fff;
+  --muted:#64788a;
+  --line:#d8e3ec;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Nunito Sans',sans-serif}
+.topo{min-height:76px;display:flex;align-items:center;justify-content:space-between;padding:12px max(6%,calc((100% - 1180px)/2));background:var(--ink);border-bottom:4px solid var(--orange)}
+.logo{font-family:'Space Grotesk',sans-serif;font-size:25px;font-weight:700;letter-spacing:-1px;color:white}
+.logo span{color:var(--orange)}
+nav{display:flex;gap:7px;flex-wrap:wrap}
+.nav-btn{background:transparent;border:1px solid transparent;padding:10px 14px;cursor:pointer;font-size:13px;font-weight:800;color:#d5e3ef;border-radius:3px;transition:.2s}
+.nav-btn:hover,.nav-btn.active{background:var(--blue);border-color:#6c9dc2;color:white}
+main{max-width:1180px;margin:0 auto;min-height:80vh;padding:0 28px}
+.pagina{display:none;padding:44px 0 75px;animation:aparecer .3s ease}
+.pagina.ativa{display:block}
+@keyframes aparecer{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+
+/* Página inicial: capa editorial escura + painel de informações */
+#inicio{padding-top:34px}
+.hero{position:relative;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;gap:0;min-height:390px;background:var(--navy);overflow:hidden}
+.hero-texto{padding:48px 42px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.hero .etiqueta{color:#ffb77e}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(35px,4.2vw,55px);line-height:1.05;letter-spacing:-2px;margin:20px 0;color:white;max-width:600px}
+.hero p{color:#d0dfeb;line-height:1.85;font-size:15px;max-width:480px}
+.botao{margin-top:26px;background:var(--orange);color:#172b40;padding:14px 20px;border:0;border-radius:3px;cursor:pointer;font-weight:900;transition:.2s}
+.botao:hover{background:#ffad70;transform:translateY(-2px)}
+.hero-imagem{position:relative;min-height:390px;padding:0;background:#244e72;transform:none;box-shadow:none;border:0}
+.hero-imagem:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#173b5e30,transparent 55%);pointer-events:none}
+.hero-imagem img{width:100%;height:100%;min-height:390px;object-fit:cover;display:block;opacity:.88}
+.hero-imagem span{position:absolute;z-index:1;bottom:20px;right:20px;background:white;color:var(--ink);padding:10px 14px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700}
+.introducao{margin:52px 0 0;max-width:760px;padding-left:24px;border-left:4px solid var(--orange)}
+.introducao h2{font-family:'Space Grotesk',sans-serif;font-size:31px;letter-spacing:-1px;margin:10px 0;color:var(--ink)}
+.introducao p{color:var(--muted);line-height:1.85;font-size:15px;margin:0 0 12px}
+.resumo{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;background:var(--blue-light);border:1px solid var(--line)}
+.resumo-card{padding:22px 26px;border-right:1px solid #c6d9e8}
+.resumo-card:last-child{border:0}
+.resumo-card strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:34px;color:var(--blue)}
+.resumo-card span{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:1px}
+
+/* Cabeçalhos de seção */
+.cabecalho-pagina{max-width:760px;margin:0 0 35px;padding:0 0 24px;border-bottom:1px solid var(--line)}
+.etiqueta{display:inline-block;color:var(--blue);font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.cabecalho-pagina h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(36px,4vw,49px);letter-spacing:-1.8px;margin:10px 0;color:var(--ink)}
+.cabecalho-pagina p{color:var(--muted);line-height:1.85;font-size:15px;max-width:650px}
+.ferramentas{margin-bottom:22px}
+#busca{width:100%;max-width:440px;padding:14px 16px;border:1px solid var(--line);border-radius:3px;outline:none;background:white;font-family:inherit;color:var(--ink)}
+#busca:focus{border-color:var(--blue);box-shadow:0 0 0 3px #397fb51a}
+
+/* Redações em formato de lista editorial, não cartões em grade */
+#lista-redacoes.grade{display:flex;flex-direction:column;gap:12px}
+#lista-redacoes .cartao{display:grid;grid-template-columns:190px 1fr;min-height:155px;background:white;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:2px;overflow:hidden;transition:.2s}
+#lista-redacoes .cartao:hover{transform:translateX(4px);box-shadow:0 8px 20px #12263a12;border-left-color:var(--orange)}
+#lista-redacoes .cartao img{width:100%;height:100%;min-height:155px;object-fit:cover;background:var(--blue-light)}
+#lista-redacoes .cartao-conteudo{padding:20px 24px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+#lista-redacoes .cartao h3{font-family:'Space Grotesk',sans-serif;font-size:22px;letter-spacing:-.5px;margin:7px 0;color:var(--ink)}
+#lista-redacoes .cartao p{font-size:13px;color:var(--muted);line-height:1.65}
+#lista-redacoes .cartao button{margin-top:12px;background:transparent;border:0;border-bottom:2px solid var(--orange);padding:0 0 3px;color:var(--blue);cursor:pointer;font-weight:900;font-family:inherit}
+.cartao small{color:var(--blue);font-weight:900;letter-spacing:1.3px;font-size:10px}
+
+/* Galerias: mosaico de fotos com alturas alternadas */
+#galeria-infancia.grade,#galeria-escola.grade{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:18px}
+#galeria-infancia .cartao,#galeria-escola .cartao{background:white;border:0;border-radius:0;overflow:hidden;box-shadow:0 5px 18px #12263a0c}
+#galeria-infancia .cartao:nth-child(2),#galeria-escola .cartao:nth-child(2){margin-top:35px}
+#galeria-infancia .cartao:nth-child(3n),#galeria-escola .cartao:nth-child(3n){margin-top:70px}
+#galeria-infancia .cartao img,#galeria-escola .cartao img{height:230px;object-fit:cover}
+#galeria-infancia .cartao-conteudo,#galeria-escola .cartao-conteudo{padding:17px 18px 20px}
+#galeria-infancia .cartao h3,#galeria-escola .cartao h3{font-family:'Space Grotesk',sans-serif;font-size:19px;color:var(--ink);margin:6px 0}
+#galeria-infancia .cartao p,#galeria-escola .cartao p{font-size:13px;color:var(--muted);line-height:1.7}
+
+/* Leitura da redação */
+.detalhe{background:white;padding:34px;border:1px solid var(--line);border-top:5px solid var(--orange);margin-top:20px;max-width:900px}
+.escondido{display:none}
+.voltar{border:0;background:transparent;color:var(--blue);cursor:pointer;margin-bottom:22px;font-size:14px;font-weight:900;font-family:inherit}
+.detalhe h2{font-family:'Space Grotesk',sans-serif;font-size:32px;letter-spacing:-1px;margin:12px 0;color:var(--ink)}
+.detalhe img{width:100%;max-height:380px;object-fit:contain;margin:20px 0;background:var(--blue-light)}
+.texto-redacao{white-space:pre-line;line-height:2;color:#33475d;font-size:15px;max-width:760px}
+footer{padding:28px max(6%,calc((100% - 1180px)/2));background:var(--ink);text-align:left;color:#e2edf7;font-size:13px;line-height:2;border-top:4px solid var(--orange)}
+footer span{font-size:11px;color:#a9c0d7}
+
+@media(max-width:850px){
+ .topo{padding:18px 5%;flex-direction:column;gap:13px}
+ main{padding:0 20px}
+ .pagina{padding:32px 0 55px}
+ .hero{grid-template-columns:1fr}
+ .hero-texto{padding:34px 28px}
+ .hero-imagem,.hero-imagem img{min-height:270px;height:270px}
+ #galeria-infancia.grade,#galeria-escola.grade{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #galeria-infancia .cartao:nth-child(n),#galeria-escola .cartao:nth-child(n){margin-top:0}
+}
+@media(max-width:560px){
+ main{padding:0 14px}
+ .hero-texto{padding:28px 22px}
+ .hero h1{font-size:35px}
+ .resumo{grid-template-columns:1fr}
+ .resumo-card{border-right:0;border-bottom:1px solid #c6d9e8}
+ .resumo-card:last-child{border-bottom:0}
+ #lista-redacoes .cartao{grid-template-columns:105px 1fr;min-height:140px}
+ #lista-redacoes .cartao img{min-height:140px}
+ #lista-redacoes .cartao-conteudo{padding:14px}
+ #lista-redacoes .cartao h3{font-size:18px}
+ #galeria-infancia.grade,#galeria-escola.grade{grid-template-columns:1fr}
+ #galeria-infancia .cartao img,#galeria-escola .cartao img{height:250px}
+ .detalhe{padding:20px}
+ .nav-btn{padding:9px 10px}
+}
+#galeria-infancia .cartao h3,#galeria-escola .cartao h3{font-family:'Space Grotesk',sans-serif;font-size:19px;color:var(--ink);margin:6px 0}
+#galeria-infancia .cartao p,#galeria-escola .cartao p{font-size:13px;color:var(--muted);line-height:1.7}
+
+/* Leitura da redação */
+.detalhe{background:white;padding:34px;border:1px solid var(--line);border-top:5px solid var(--orange);margin-top:20px;max-width:900px}
+.escondido{display:none}
+.voltar{border:0;background:transparent;color:var(--blue);cursor:pointer;margin-bottom:22px;font-size:14px;font-weight:900;font-family:inherit}
+.detalhe h2{font-family:'Space Grotesk',sans-serif;font-size:32px;letter-spacing:-1px;margin:12px 0;color:var(--ink)}
+.detalhe img{width:100%;max-height:380px;object-fit:contain;margin:20px 0;background:var(--blue-light)}
+.texto-redacao{white-space:pre-line;line-height:2;color:#33475d;font-size:15px;max-width:760px}
+footer{padding:28px max(6%,calc((100% - 1180px)/2));background:var(--ink);text-align:left;color:#e2edf7;font-size:13px;line-height:2;border-top:4px solid var(--orange)}
+footer span{font-size:11px;color:#a9c0d7}
+
+@media(max-width:850px){
+ .topo{padding:18px 5%;flex-direction:column;gap:13px}
+ main{padding:0 20px}
+ .pagina{padding:32px 0 55px}
+ .hero{grid-template-columns:1fr}
+ .hero-texto{padding:34px 28px}
+ .hero-imagem,.hero-imagem img{min-height:270px;height:270px}
+ #galeria-infancia.grade,#galeria-escola.grade{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #galeria-infancia .cartao:nth-child(n),#galeria-escola .cartao:nth-child(n){margin-top:0}
+}
+@media(max-width:560px){
+ main{padding:0 14px}
+ .hero-texto{padding:28px 22px}
+ .hero h1{font-size:35px}
+ .resumo{grid-template-columns:1fr}
+ .resumo-card{border-right:0;border-bottom:1px solid #c6d9e8}
+ .resumo-card:last-child{border-bottom:0}
+ #lista-redacoes .cartao{grid-template-columns:105px 1fr;min-height:140px}
+ #lista-redacoes .cartao img{min-height:140px}
+ #lista-redacoes .cartao-conteudo{padding:14px}
+ #lista-redacoes .cartao h3{font-size:18px}
+ #galeria-infancia.grade,#galeria-escola.grade{grid-template-columns:1fr}
+ #galeria-infancia .cartao img,#galeria-escola .cartao img{height:250px}
+ .detalhe{padding:20px}
+ .nav-btn{padding:9px 10px}
+}
